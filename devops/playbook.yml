@@ -70,7 +70,7 @@
       template:
         src: nginx.conf.j2
         dest: "/etc/nginx/sites-available/{{ DOMAIN_NAME }}"  
-        notify: Reload Nginx
+      notify: Reload Nginx
 
     - name: Enable Nginx site
       file:
