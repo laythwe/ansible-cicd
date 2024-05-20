@@ -42,6 +42,12 @@ jobs:
 
       - name: Create SSH key
         run: |
+          if [ -z "$TARGET_HOST" ]; then
+          echo "TARGET_HOST is not set."
+          exit 1
+          else
+          echo "TARGET_HOST is set to: $TARGET_HOST"
+          fi
           echo "$SSH_PRIVATE_KEY" > private.key
           sudo chmod 400 private.key
           eval `ssh-agent -s`
